@@ -11,7 +11,6 @@ import com.alicankustemur.musicstore.model.Album;
 
 public class AlbumServiceImpl extends JdbcDaoSupport implements AlbumService
 {
-
 	private JdbcTemplateAlbumRepositoryImpl	albumRepository;
 
 	@Autowired

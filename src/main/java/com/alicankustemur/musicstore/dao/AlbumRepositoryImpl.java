@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.alicankustemur.musicstore.model.Album;
 
-@Component
 public class AlbumRepositoryImpl implements AlbumRepository
 {
 

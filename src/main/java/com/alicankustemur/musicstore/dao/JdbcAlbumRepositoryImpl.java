@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import com.alicankustemur.musicstore.model.Album;
 
-@Component
 public class JdbcAlbumRepositoryImpl extends JdbcDaoSupport implements AlbumRepository
 {
 

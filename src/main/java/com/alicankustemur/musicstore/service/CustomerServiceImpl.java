@@ -1,5 +1,6 @@
 package com.alicankustemur.musicstore.service;
 
+import com.alicankustemur.musicstore.dao.HibernateCustomerRepositoryImpl;
 import com.alicankustemur.musicstore.dao.JdbcTemplateCustomerRepositoryImpl;
 import com.alicankustemur.musicstore.model.Album;
 import com.alicankustemur.musicstore.model.Customer;
@@ -7,15 +8,13 @@ import com.alicankustemur.musicstore.model.Customer;
 public class CustomerServiceImpl implements CustomerService
 {
 
-	private JdbcTemplateCustomerRepositoryImpl customerRepository;
+	private HibernateCustomerRepositoryImpl customerRepository;
 
-	public JdbcTemplateCustomerRepositoryImpl getCustomerRepository()
-	{
+	public HibernateCustomerRepositoryImpl getCustomerRepository() {
 		return customerRepository;
 	}
 
-	public void setCustomerRepository(JdbcTemplateCustomerRepositoryImpl customerRepository)
-	{
+	public void setCustomerRepository(HibernateCustomerRepositoryImpl customerRepository) {
 		this.customerRepository = customerRepository;
 	}
 

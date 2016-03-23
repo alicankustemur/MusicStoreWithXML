@@ -19,8 +19,8 @@ public class Main
 		AlbumService albumService = applicationContext.getBean(AlbumService.class);
 		Album album = albumService.getAlbumByName("name7");
 		CustomerService customerService = applicationContext.getBean(CustomerService.class);
-		customerService.saveCustomer("Ali Can", "Kuştemur", album);
-
+		customerService.getCustomerByName("Ali Can");
+		
 	}
 
 }
