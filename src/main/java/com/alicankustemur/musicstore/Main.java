@@ -7,7 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.alicankustemur.musicstore.model.Album;
 import com.alicankustemur.musicstore.service.AlbumService;
-import com.alicankustemur.musicstore.service.CustomerService;
 
 public class Main
 {
@@ -16,11 +15,12 @@ public class Main
 	{
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		AlbumService albumService = applicationContext.getBean(AlbumService.class);
-		Album album = albumService.getAlbumByName("name7");
-		CustomerService customerService = applicationContext.getBean(CustomerService.class);
-		customerService.getCustomerByName("Ali Can");
-		
+
+		AlbumService service = applicationContext.getBean(AlbumService.class);
+		Album album = service.getAlbumByName("The Wall");
+		album.setName("The Wall New Release");
+		service.sellAlbum(album);
+
 	}
 
 }

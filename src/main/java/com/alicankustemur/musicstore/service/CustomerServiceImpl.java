@@ -1,6 +1,7 @@
 package com.alicankustemur.musicstore.service;
 
-import com.alicankustemur.musicstore.dao.HibernateCustomerRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.alicankustemur.musicstore.dao.JdbcTemplateCustomerRepositoryImpl;
 import com.alicankustemur.musicstore.model.Album;
 import com.alicankustemur.musicstore.model.Customer;
@@ -8,13 +9,16 @@ import com.alicankustemur.musicstore.model.Customer;
 public class CustomerServiceImpl implements CustomerService
 {
 
-	private HibernateCustomerRepositoryImpl customerRepository;
+	@Autowired
+	private JdbcTemplateCustomerRepositoryImpl customerRepository;
 
-	public HibernateCustomerRepositoryImpl getCustomerRepository() {
+	public JdbcTemplateCustomerRepositoryImpl getCustomerRepository()
+	{
 		return customerRepository;
 	}
 
-	public void setCustomerRepository(HibernateCustomerRepositoryImpl customerRepository) {
+	public void setCustomerRepository(JdbcTemplateCustomerRepositoryImpl customerRepository)
+	{
 		this.customerRepository = customerRepository;
 	}
 

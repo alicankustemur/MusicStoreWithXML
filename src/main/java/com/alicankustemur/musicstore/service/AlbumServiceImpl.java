@@ -11,6 +11,7 @@ import com.alicankustemur.musicstore.model.Album;
 
 public class AlbumServiceImpl extends JdbcDaoSupport implements AlbumService
 {
+	@Autowired
 	private JdbcTemplateAlbumRepositoryImpl	albumRepository;
 
 	@Autowired
@@ -32,7 +33,7 @@ public class AlbumServiceImpl extends JdbcDaoSupport implements AlbumService
 		setDataSource(dataSource);
 	}
 
-	public Album sellAAlbum(String name, String artistName, String variation, String genre, int songNumbers)
+	public Album sellAlbum(String name, String artistName, String variation, String genre, int songNumbers)
 	{
 
 		Album dbAlbum = getAlbumByName(name);
@@ -66,6 +67,29 @@ public class AlbumServiceImpl extends JdbcDaoSupport implements AlbumService
 		{
 			System.out.println(album.getName() + " album returned.");
 		}
+		return album;
+	}
+
+	public Album sellAlbum(Album album)
+	{
+
+		Album dbAlbum = getAlbumByName(album.getName());
+		if (dbAlbum == null)
+		{
+			album.setVariation(album.getVariation());
+			album.setName(album.getName());
+			album.setArtistName(album.getArtistName());
+			album.setGenre(album.getGenre());
+			album.setSongNumbers(album.getSongNumbers());
+			album.setSolded(true);
+			albumRepository.save(album);
+
+		}
+		else
+		{
+			System.out.println(dbAlbum.getName() + " is already exists in database.");
+		}
+
 		return album;
 	}
 
